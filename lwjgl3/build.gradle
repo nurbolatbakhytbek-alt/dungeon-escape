@@ -19,7 +19,6 @@ apply plugin: 'io.github.fourlastor.construo'
 import io.github.fourlastor.construo.Target
 
 sourceSets.main.resources.srcDirs += [ rootProject.file('assets').path ]
-<<<<<<< HEAD
 application.mainClass = 'com.dungeondevs.game.lwjgl3.Lwjgl3Launcher'
 application.applicationName = appName
 eclipse.project.name = appName + '-lwjgl3'
@@ -27,43 +26,11 @@ java.sourceCompatibility = 11
 java.targetCompatibility = 11
 if (JavaVersion.current().isJava9Compatible()) {
         compileJava.options.release.set(11)
-=======
-application.mainClass = 'com.darkradius.lwjgl3.Lwjgl3Launcher'
-application.applicationName = appName
-eclipse.project.name = appName + '-lwjgl3'
-java.sourceCompatibility = 8
-java.targetCompatibility = 8
-if (JavaVersion.current().isJava9Compatible()) {
-        compileJava.options.release.set(8)
->>>>>>> 0543f20419be8d15273fb445da9c2a0c765ae0dc
 }
 
 dependencies {
   implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
-<<<<<<< HEAD
   implementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
-=======
->>>>>>> 0543f20419be8d15273fb445da9c2a0c765ae0dc
-  implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-  implementation project(':core')
-
-  if(enableGraalNative == 'true') {
-    implementation "io.github.berstanio:gdx-svmhelper-backend-lwjgl3:$graalHelperVersion"
-
-<<<<<<< HEAD
-  }
-  // Forces LWJGL3 to use at least $lwjgl3Version, currently 3.4.1, to avoid problems on Java 25 and up.
-  constraints{
-    implementation("org.lwjgl:lwjgl:$lwjgl3Version")
-    implementation("org.lwjgl:lwjgl-glfw:$lwjgl3Version")
-    implementation("org.lwjgl:lwjgl-jemalloc:$lwjgl3Version")
-    implementation("org.lwjgl:lwjgl-openal:$lwjgl3Version")
-    implementation("org.lwjgl:lwjgl-opengl:$lwjgl3Version")
-    implementation("org.lwjgl:lwjgl-stb:$lwjgl3Version")
-  }
-=======
-    }
->>>>>>> 0543f20419be8d15273fb445da9c2a0c765ae0dc
 }
 
 def os = System.properties['os.name'].toLowerCase(Locale.ROOT)
@@ -72,11 +39,7 @@ run {
   workingDir = rootProject.file('assets').path
 // You can uncomment the next line if your IDE claims a build failure even when the app closed properly.
   //setIgnoreExitValue(true)
-<<<<<<< HEAD
   jvmArgs += "--enable-native-access=ALL-UNNAMED"
-=======
-
->>>>>>> 0543f20419be8d15273fb445da9c2a0c765ae0dc
   if (os.contains('mac')) jvmArgs += "-XstartOnFirstThread"
 }
 
@@ -94,14 +57,9 @@ jar {
   }
 // setting the manifest makes the JAR runnable.
 // enabling native access helps avoid a warning when Java 24 or later runs the JAR.
-<<<<<<< HEAD
 // setting Multi-Release to true allows LWJGL3 to use different classes on recent Java versions.
   manifest {
     attributes 'Main-Class': application.mainClass, 'Enable-Native-Access': 'ALL-UNNAMED', 'Multi-Release': 'true'
-=======
-  manifest {
-    attributes 'Main-Class': application.mainClass, 'Enable-Native-Access': 'ALL-UNNAMED'
->>>>>>> 0543f20419be8d15273fb445da9c2a0c765ae0dc
   }
 // this last step may help on some OSes that need extra instruction to make runnable JARs.
   doLast {
@@ -152,7 +110,6 @@ tasks.register("jarWin") {
 }
 
 construo {
-<<<<<<< HEAD
   // name of the executable
   name.set(appName)
   // human-readable name, used for example in the `.app` name for macOS
@@ -194,44 +151,6 @@ construo {
       //useConsole.set(true)
     }
   }
-=======
-    // name of the executable
-    name.set(appName)
-    // human-readable name, used for example in the `.app` name for macOS
-    humanName.set(appName)
-
-    targets.configure {
-      register("linuxX64", Target.Linux) {
-        architecture.set(Target.Architecture.X86_64)
-        jdkUrl.set("https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.15%2B6/OpenJDK17U-jdk_x64_linux_hotspot_17.0.15_6.tar.gz")
-        // Linux does not currently have a way to set the icon on the executable
-      }
-      register("macM1", Target.MacOs) {
-        architecture.set(Target.Architecture.AARCH64)
-        jdkUrl.set("https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.15%2B6/OpenJDK17U-jdk_aarch64_mac_hotspot_17.0.15_6.tar.gz")
-        // macOS needs an identifier
-        identifier.set("com.darkradius." + appName)
-        // Optional: icon for macOS, as an ICNS file
-        macIcon.set(project.file("icons/logo.icns"))
-      }
-      register("macX64", Target.MacOs) {
-        architecture.set(Target.Architecture.X86_64)
-        jdkUrl.set("https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.15%2B6/OpenJDK17U-jdk_x64_mac_hotspot_17.0.15_6.tar.gz")
-        // macOS needs an identifier
-        identifier.set("com.darkradius." + appName)
-        // Optional: icon for macOS, as an ICNS file
-        macIcon.set(project.file("icons/logo.icns"))
-      }
-      register("winX64", Target.Windows) {
-        architecture.set(Target.Architecture.X86_64)
-        // Optional: icon for Windows, as a PNG
-        icon.set(project.file("icons/logo.png"))
-        jdkUrl.set("https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.15%2B6/OpenJDK17U-jdk_x64_windows_hotspot_17.0.15_6.zip")
-        // Uncomment the next line to show a console when the game runs, to print messages.
-        //useConsole.set(true)
-      }
-    }
->>>>>>> 0543f20419be8d15273fb445da9c2a0c765ae0dc
 }
 
 // Equivalent to the jar task; here for compatibility with gdx-setup.
@@ -258,8 +177,4 @@ startScripts.classpath = project.tasks.jar.outputs.files
 
 if(enableGraalNative == 'true') {
   apply from: file("nativeimage.gradle")
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0543f20419be8d15273fb445da9c2a0c765ae0dc
