@@ -2,16 +2,22 @@
 eclipse.project.name = appName + '-core'
 
 dependencies {
+<<<<<<< HEAD
   api "com.badlogicgames.ashley:ashley:$ashleyVersion"
   api "com.badlogicgames.box2dlights:box2dlights:$box2dlightsVersion"
   api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+=======
+>>>>>>> 0543f20419be8d15273fb445da9c2a0c765ae0dc
   api "com.badlogicgames.gdx:gdx:$gdxVersion"
 
   if(enableGraalNative == 'true') {
     implementation "io.github.berstanio:gdx-svmhelper-annotations:$graalHelperVersion"
   }
 }
+<<<<<<< HEAD
 
 jar {
   duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
+=======
+>>>>>>> 0543f20419be8d15273fb445da9c2a0c765ae0dc

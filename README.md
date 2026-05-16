@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # DungeonEscape
+=======
+# DungeonEscape 
+>>>>>>> 0543f20419be8d15273fb445da9c2a0c765ae0dc
 
 A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
 

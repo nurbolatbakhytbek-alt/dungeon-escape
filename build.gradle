@@ -27,7 +27,11 @@ allprojects {
 
 configure(subprojects) {
   apply plugin: 'java-library'
+<<<<<<< HEAD
   java.sourceCompatibility = 11
+=======
+  java.sourceCompatibility = 8
+>>>>>>> 0543f20419be8d15273fb445da9c2a0c765ae0dc
 
   // From https://lyze.dev/2021/04/29/libGDX-Internal-Assets-List/
   // The article can be helpful when using assets.txt in your project.
@@ -56,7 +60,11 @@ configure(subprojects) {
 
 subprojects {
   version = "$projectVersion"
+<<<<<<< HEAD
   ext.appName = 'DungeonEscape'
+=======
+  ext.appName = 'DungeonEscape '
+>>>>>>> 0543f20419be8d15273fb445da9c2a0c765ae0dc
   repositories {
     mavenCentral()
     // You may want to remove the following line if you have errors downloading dependencies.
@@ -66,4 +74,8 @@ subprojects {
   }
 }
 
+<<<<<<< HEAD
 eclipse.project.name = 'DungeonEscape' + '-parent'
+=======
+eclipse.project.name = 'DungeonEscape ' + '-parent'
+>>>>>>> 0543f20419be8d15273fb445da9c2a0c765ae0dc
